@@ -11,6 +11,6 @@ while True:
     if not data:
         break
     conn.send(data.upper())
-    print(data)
+    print(data.decode())
 
 conn.close()
