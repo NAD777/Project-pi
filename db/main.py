@@ -6,6 +6,10 @@ def commit(Person1):
               {'time': Person1.time, 'id': Person1.id, 'in_school': Person1.in_school})
 
     conn.commit()
+def get_date(colomn,person):
+    c.execute("SELECT * FROM person WHERE "+colomn+'='+"'"+person+"'") # c.execute("SELECT * FROM  person WHERE id = 'Ilya'")
+    print(c.fetchall())
+    conn.commit()
 
 conn = sqlite3.connect('person.db') #person.db
 
@@ -16,16 +20,14 @@ c = conn.cursor()
 #    id text,
 #    in_school  integer
 #)""")
-time = '11'
+time = '12'
 id='Mark'
 status = 0
 Person1 = Person(time, id, status)
-commit(Person1)
+#commit(Person1)
 
-c.execute("SELECT * FROM  person WHERE id = 'Ilya'")
+get_date('id','Ilya')
 
-print(c.fetchall())
 
-conn.commit()
 
 conn.close()
